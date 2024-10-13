@@ -17,9 +17,8 @@ The characteristics must fit the object exactly and describe it exactly. If a ch
         response = self.model.generate_content(prompt)
         return response.text.strip()
 
-    async def ChooseFromOld(self, categories: dict, name: str) -> str:
+    async def ChooseFromOld(self, categories: list, name: str) -> str:
         # Формируем запрос для выбора старого класса
-        category_list = ', '.join(categories.keys())
         prompt = f"To which group is the object best categorized: {name}. Here's a list of groups: {categories} . Give the answer to the strictly selected group. Your answer must not contain anything other than the selected group."
         response = self.model.generate_content(prompt)
         return response.text.strip()
